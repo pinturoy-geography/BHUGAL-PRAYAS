@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BHUGAL PRAYAS by Pintu Roy</title>
+  <meta name="description" content="BHUGAL PRAYAS by Pintu Roy. Connect with us, make enquiries and explore more.">
+  <meta name="theme-color" content="#080b18">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #080b18;
+      --text: #f5f7ff;
+      --muted: #b9c1d9;
+      --glass: rgba(255,255,255,.07);
+      --glass-border: rgba(255,255,255,.16);
+      --accent: #00d4ff;
+      --accent2: #8b5cf6;
+      --shadow: rgba(0,0,0,.25);
+    }
+    body.light {
+      --bg: #edf2ff;
+      --text: #151a30;
+      --muted: #505a76;
+      --glass: rgba(255,255,255,.76);
+      --glass-border: rgba(50,65,100,.18);
+      --accent: #087ee1;
+      --accent2: #7851d8;
+      --shadow: rgba(35,50,90,.12);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh; font-family: Arial, Helvetica, sans-serif;
+      color: var(--text); background: var(--bg); overflow-x: hidden;
+      transition: background .35s, color .35s;
+    }
+    body::before {
+      content: ""; position: fixed; inset: -50%; z-index: -2;
+      background:
+        radial-gradient(circle at 20% 30%, #512da8 0, transparent 30%),
+        radial-gradient(circle at 80% 25%, #007f9e 0, transparent 30%),
+        radial-gradient(circle at 50% 80%, #3b1d76 0, transparent 35%);
+      animation: backgroundMove 15s ease-in-out infinite alternate;
+    }
+    body.light::before {
+      background:
+        radial-gradient(circle at 20% 30%, #c9b9ff 0, transparent 30%),
+        radial-gradient(circle at 80% 25%, #a7eaff 0, transparent 30%),
+        radial-gradient(circle at 50% 80%, #dfccff 0, transparent 35%);
+    }
+    @keyframes backgroundMove {
+      from { transform: translate(-2%,-2%) rotate(0); }
+      to { transform: translate(2%,2%) rotate(8deg); }
+    }
+    .theme-toggle {
+      position: fixed; top: 18px; right: 18px; z-index: 100;
+      width: 48px; height: 48px; border-radius: 50%;
+      border: 1px solid var(--glass-border); color: var(--text);
+      background: var(--glass); backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px); cursor: pointer;
+      font-size: 20px; box-shadow: 0 5px 20px var(--shadow);
+    }
+    .container { width: min(100% - 32px, 1000px); margin: auto; padding: 78px 0 30px; }
+    .glass-card {
+      position: relative; padding: 28px; margin-bottom: 25px;
+      border-radius: 24px; background: var(--glass);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      box-shadow: 0 15px 45px var(--shadow); overflow: hidden;
+    }
+    .hero { text-align: center; padding: 35px 25px; }
+    .hero::before {
+      content: ""; position: absolute; inset: 0; padding: 2px;
+      border-radius: inherit;
+      background: linear-gradient(120deg,var(--accent),transparent,var(--accent2),var(--accent));
+      background-size: 300% 300%; animation: borderGlow 7s linear infinite;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none;
+    }
+    @keyframes borderGlow { 0% { background-position: 0% 50%; } 100% { background-position: 300% 50%; } }
+    .logo-container {
+      width: 100%; max-width: 850px; margin: 0 auto 22px;
+      overflow: hidden; border-radius: 18px;
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 10px 35px rgba(0,200,255,.18);
+    }
+    .site-logo { display: block; width: 100%; height: auto; object-fit: contain; }
+    h1 {
+      font-size: clamp(30px,6vw,48px); line-height: 1.15; font-weight: 900;
+      letter-spacing: 1px; overflow-wrap: anywhere;
+      background: linear-gradient(90deg,var(--accent),#fff,var(--accent2));
+      background-size: 200% auto; color: var(--accent);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; animation: titleGlow 5s linear infinite;
+    }
+    @keyframes titleGlow { to { background-position: 200% center; } }
+    .subtitle { color: var(--muted); font-size: 16px; margin-top: 12px; line-height: 1.7; }
+    .visitor-counter {
+      display: inline-flex; align-items: center; gap: 9px; margin-top: 22px;
+      padding: 10px 17px; border-radius: 50px; border: 1px solid var(--glass-border);
+      background: var(--glass); font-size: 14px; color: var(--text);
+    }
+    .visitor-counter i { color: var(--accent); }
+    .section-title { font-size: 23px; margin-bottom: 18px; display: flex; align-items: center; gap: 11px; }
+    .section-title i { color: var(--accent); }
+    .section-description { color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
+    .button-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
+    .btn {
+      display: flex; justify-content: center; align-items: center; gap: 10px;
+      width: 100%; min-height: 49px; padding: 13px 17px; border-radius: 14px;
+      border: 1px solid var(--glass-border); background: var(--glass); color: var(--text);
+      text-align: center; text-decoration: none; font-size: 15px; font-weight: 700;
+      font-family: inherit; cursor: pointer;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .btn:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 8px 24px rgba(0,200,255,.15); }
+    .btn i { font-size: 18px; }
+    .whatsapp-btn i { color: #25D366; }
+    .contact-btn i { color: var(--accent); }
+    .gmail-btn i { color: #ff746d; }
+    .facebook-btn i { color: #1877F2; }
+    .instagram-btn i { color: #E4405F; }
+    .youtube-btn i { color: #FF0000; }
+    .enquiry-btn i { color: var(--accent); }
+    .coming-soon { opacity: .72; cursor: default; }
+    .coming-soon:hover { transform: none; box-shadow: none; border-color: var(--glass-border); }
+    .rating-stars { display: flex; justify-content: center; gap: 8px; margin: 18px 0; }
+    .rating-stars button {
+      border: none; background: transparent; color: #8790a8;
+      font-size: clamp(28px,6vw,38px); cursor: pointer; transition: transform .2s,color .2s;
+    }
+    .rating-stars button:hover { transform: scale(1.15); }
+    .rating-stars button.active { color: #ffc83d; }
+    .rating-message { min-height: 24px; text-align: center; color: var(--muted); font-size: 14px; margin-top: 8px; }
+    .rating-average { text-align: center; font-weight: 700; margin-top: 10px; }
+    .qr-placeholder {
+      width: min(100%,260px); aspect-ratio: 1; margin: 20px auto 0;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      gap: 12px; border: 2px dashed var(--glass-border); border-radius: 20px;
+      color: var(--muted); text-align: center; padding: 20px;
+    }
+    .qr-placeholder i { font-size: 58px; color: var(--accent); }
+    .qr-container { display: flex; justify-content: center; margin-top: 20px; }
+    .qr-image {
+      display: block; width: 100%; max-width: 320px; height: auto;
+      border-radius: 14px; border: 1px solid var(--glass-border);
+      box-shadow: 0 10px 30px var(--shadow); background: #fff;
+    }
+    .footer { padding: 10px 0 25px; text-align: center; color: var(--muted); font-size: 13px; line-height: 1.8; }
+    .footer strong { color: var(--text); }
+    @media (max-width: 600px) {
+      .container { width: min(100% - 22px,1000px); padding-top: 78px; }
+      .glass-card { padding: 22px 17px; border-radius: 20px; }
+      .hero { padding: 25px 14px; }
+      .logo-container { border-radius: 12px; margin-bottom: 18px; }
+      .button-grid { grid-template-columns: 1fr; }
+      .section-title { font-size: 21px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *,*::before,*::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark theme">
+    <i class="fas fa-moon" id="themeIcon"></i>
+  </button>
+
+  <main class="container">
+    <header class="glass-card hero">
+      <div class="logo-container">
+        <img src="logo.jpeg" alt="BHUGAL PRAYAS by Pintu Roy Logo" class="site-logo">
+      </div>
+      <h1>BHUGAL PRAYAS</h1>
+      <p class="subtitle">by Pintu Roy</p>
+      <p class="subtitle">Welcome to BHUGAL PRAYAS — connect with us and explore more.</p>
+      <div class="visitor-counter"><i class="fas fa-eye"></i><strong>1.5K visitors today</strong></div>
+    </header>
+
+    <section class="glass-card" id="follow">
+      <h2 class="section-title"><i class="fas fa-users"></i> Follow Me</h2>
+      <p class="section-description">Connect with BHUGAL PRAYAS on social media.</p>
+      <div class="button-grid">
+        <a href="#follow" class="btn facebook-btn coming-soon" aria-label="Facebook Profile coming soon"><i class="fab fa-facebook"></i> Facebook Profile — Coming Soon</a>
+        <a href="#follow" class="btn facebook-btn coming-soon" aria-label="Facebook Page coming soon"><i class="fab fa-facebook-f"></i> Facebook Page — Coming Soon</a>
+        <a href="#follow" class="btn instagram-btn coming-soon" aria-label="Instagram coming soon"><i class="fab fa-instagram"></i> Instagram — Coming Soon</a>
+        <a href="#follow" class="btn youtube-btn coming-soon" aria-label="YouTube Channel coming soon"><i class="fab fa-youtube"></i> YouTube Channel — Coming Soon</a>
+      </div>
+    </section>
+
+    <section class="glass-card" id="contact">
+      <h2 class="section-title"><i class="fas fa-address-book"></i> Contact Us</h2>
+      <p class="section-description">Have a question? Contact us through your preferred method.</p>
+      <div class="button-grid">
+        <a href="https://wa.me/919064910430" target="_blank" rel="noopener noreferrer" class="btn whatsapp-btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="tel:+919064910430" class="btn contact-btn"><i class="fas fa-phone-alt"></i> Contact / Call</a>
+        <a href="mailto:pinturoy9732@gmail.com" class="btn gmail-btn"><i class="fas fa-envelope"></i> Gmail</a>
+      </div>
+    </section>
+
+    <section class="glass-card" id="enquiry">
+      <h2 class="section-title"><i class="fas fa-clipboard-list"></i> Enquiry Form</h2>
+      <p class="section-description">For enquiries or more information, click below to complete our Google Form.</p>
+      <a href="https://docs.google.com/forms/d/1tlyLvXjZgwoQul0ktnM5ZqBWXkXMma9cMaKL_6ja7Cg/viewform" target="_blank" rel="noopener noreferrer" class="btn enquiry-btn"><i class="fas fa-paper-plane"></i> Fill Enquiry Form</a>
+    </section>
+
+    <section class="glass-card" id="qr">
+      <h2 class="section-title"><i class="fas fa-qrcode"></i> Scan Our QR Code</h2>
+      <p class="section-description">Scan the QR code below to connect with BHUGAL PRAYAS.</p>
+      <div class="qr-container">
+        <img src="qr-code.jpeg" alt="BHUGAL PRAYAS QR Code" class="qr-image" loading="lazy">
+      </div>
+    </section>
+
+    <section class="glass-card" id="rating">
+      <h2 class="section-title"><i class="fas fa-star"></i> Rate Our Website</h2>
+      <p class="section-description">Enjoying the website? Select a star rating.</p>
+      <div class="rating-stars" aria-label="Rate this website">
+        <button type="button" data-rating="1" aria-label="1 star">★</button>
+        <button type="button" data-rating="2" aria-label="2 stars">★</button>
+        <button type="button" data-rating="3" aria-label="3 stars">★</button>
+        <button type="button" data-rating="4" aria-label="4 stars">★</button>
+        <button type="button" data-rating="5" aria-label="5 stars">★</button>
+      </div>
+      <p class="rating-message" id="ratingMessage" aria-live="polite">Choose your rating above.</p>
+      <p class="rating-average" id="ratingAverage">Your rating: Not rated yet</p>
+    </section>
+
+    <footer class="footer">
+      <p><strong>BHUGAL PRAYAS</strong> by Pintu Roy</p>
+      <p>Contact: +91 9064910430</p>
+      <p>© <span id="year"></span> BHUGAL PRAYAS. All rights reserved.</p>
+    </footer>
+  </main>
+
+  <script>
+    // Theme toggle
+    const themeToggle = document.getElementById("themeToggle");
+    const themeIcon = document.getElementById("themeIcon");
+
+    function applyTheme(theme) {
+      document.body.classList.toggle("light", theme === "light");
+      themeIcon.className = theme === "light" ? "fas fa-sun" : "fas fa-moon";
+    }
+
+    let savedTheme = "dark";
+    try {
+      savedTheme = localStorage.getItem("bhugalPrayasTheme") || "dark";
+    } catch (error) {
+      savedTheme = "dark";
+    }
+    applyTheme(savedTheme);
+
+    themeToggle.addEventListener("click", () => {
+      const newTheme = document.body.classList.contains("light") ? "dark" : "light";
+      applyTheme(newTheme);
+      try {
+        localStorage.setItem("bhugalPrayasTheme", newTheme);
+      } catch (error) {}
+    });
+
+    // Rating: saved in this browser only, not shared across visitors
+    const ratingButtons = document.querySelectorAll(".rating-stars button");
+    const ratingMessage = document.getElementById("ratingMessage");
+    const ratingAverage = document.getElementById("ratingAverage");
+
+    function showRating(rating) {
+      ratingButtons.forEach(button => {
+        button.classList.toggle("active", Number(button.dataset.rating) <= rating);
+      });
+    }
+
+    let savedRating = 0;
+    try {
+      savedRating = Number(localStorage.getItem("bhugalPrayasRating")) || 0;
+    } catch (error) {
+      savedRating = 0;
+    }
+
+    if (savedRating >= 1 && savedRating <= 5) {
+      showRating(savedRating);
+      ratingAverage.textContent = "Your rating: " + savedRating + " / 5";
+      ratingMessage.textContent = "Thank you for your rating!";
+    }
+
+    ratingButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const rating = Number(button.dataset.rating);
+        showRating(rating);
+        ratingAverage.textContent = "Your rating: " + rating + " / 5";
+        ratingMessage.textContent = "Thank you for rating our website!";
+        try {
+          localStorage.setItem("bhugalPrayasRating", String(rating));
+        } catch (error) {}
+      });
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
