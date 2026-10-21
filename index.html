@@ -150,16 +150,17 @@
             100% { background-position: 300% 50%; }
         }
 
-        /* LOGO IMAGE */
+        /* Circular Logo */
         .logo-icon {
             width: 110px;
             height: 110px;
             display: grid;
             place-items: center;
             margin: 0 auto 20px;
-            border-radius: 26px;
+            border-radius: 50%;
+            padding: 3px;
             overflow: hidden;
-            background: linear-gradient(135deg, #00bfe8, #7851d8);
+            background: linear-gradient(135deg, #ffd700, #00d4ff, #8b5cf6);
             box-shadow: 0 10px 35px rgba(0, 190, 255, 0.25);
             animation: float 4s ease-in-out infinite;
         }
@@ -167,8 +168,9 @@
         .logo-icon img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
-            border-radius: inherit;
+            object-fit: cover;
+            display: block;
+            border-radius: 50%;
         }
 
         @keyframes float {
@@ -297,6 +299,24 @@
             border-color: var(--glass-border);
         }
 
+        /* Banner - independent section */
+        .brand-banner {
+            width: 100%;
+            margin: 0 auto;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 10px 30px var(--shadow);
+            line-height: 0;
+        }
+
+        .brand-banner img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
         /* Rating */
         .rating-stars {
             display: flex;
@@ -336,7 +356,7 @@
             margin-top: 10px;
         }
 
-        /* QR CODE IMAGE */
+        /* QR Code */
         .qr-placeholder {
             width: min(100%, 260px);
             margin: 20px auto 0;
@@ -389,6 +409,10 @@
             .section-title {
                 font-size: 21px;
             }
+
+            .brand-banner {
+                border-radius: 12px;
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -414,10 +438,9 @@
 
     <main class="container">
 
-        <!-- HERO SECTION -->
+        <!-- HERO: LOGO REMAINS SEPARATE FROM BANNER -->
         <header class="glass-card hero">
 
-            <!-- Your Logo -->
             <div class="logo-icon">
                 <img src="logo.jpeg"
                      alt="BHUGAL PRAYAS Logo">
@@ -434,10 +457,12 @@
                 <i class="fas fa-eye"></i>
                 <strong>1.5K visitors today</strong>
             </div>
+
         </header>
 
         <!-- FOLLOW ME -->
         <section class="glass-card" id="follow">
+
             <h2 class="section-title">
                 <i class="fas fa-users"></i>
                 Follow Me
@@ -448,11 +473,13 @@
             </p>
 
             <div class="button-grid">
-                <a href="#follow"
-                   class="btn facebook-btn coming-soon"
-                   aria-label="Facebook Profile coming soon">
+
+                <a href="https://www.facebook.com/share/1FntwTG9N5/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn facebook-btn">
                     <i class="fab fa-facebook"></i>
-                    Facebook Profile — Coming Soon
+                    Facebook Profile
                 </a>
 
                 <a href="#follow"
@@ -475,11 +502,13 @@
                     <i class="fab fa-youtube"></i>
                     YouTube Channel — Coming Soon
                 </a>
+
             </div>
         </section>
 
-        <!-- CONTACT SECTION -->
+        <!-- CONTACT -->
         <section class="glass-card" id="contact">
+
             <h2 class="section-title">
                 <i class="fas fa-address-book"></i>
                 Contact Us
@@ -516,6 +545,7 @@
 
         <!-- ENQUIRY FORM -->
         <section class="glass-card" id="enquiry">
+
             <h2 class="section-title">
                 <i class="fas fa-clipboard-list"></i>
                 Enquiry Form
@@ -533,10 +563,12 @@
                 <i class="fas fa-paper-plane"></i>
                 Fill Enquiry Form
             </a>
+
         </section>
 
         <!-- QR CODE -->
         <section class="glass-card" id="qr">
+
             <h2 class="section-title">
                 <i class="fas fa-qrcode"></i>
                 Scan Our QR Code
@@ -550,10 +582,12 @@
                 <img src="qr-code.jpeg"
                      alt="BHUGAL PRAYAS QR Code">
             </div>
+
         </section>
 
-        <!-- RATING SECTION -->
+        <!-- WEBSITE RATING -->
         <section class="glass-card" id="rating">
+
             <h2 class="section-title">
                 <i class="fas fa-star"></i>
                 Rate Our Website
@@ -578,13 +612,27 @@
             <p class="rating-average" id="ratingAverage">
                 Your rating: Not rated yet
             </p>
+
         </section>
 
-        <!-- FOOTER -->
+        <!-- BANNER: AFTER RATING, BEFORE COPYRIGHT -->
+        <section class="glass-card" id="banner">
+
+            <div class="brand-banner">
+                <img src="banner.png"
+                     alt="BHUGAL PRAYAS by Pintu Roy Banner"
+                     loading="lazy">
+            </div>
+
+        </section>
+
+        <!-- COPYRIGHT FOOTER -->
         <footer class="footer">
+
             <p><strong>BHUGAL PRAYAS</strong> by Pintu Roy</p>
             <p>Contact: +91 9064910430</p>
             <p>© <span id="year"></span> BHUGAL PRAYAS. All rights reserved.</p>
+
         </footer>
 
     </main>
@@ -619,7 +667,7 @@
             try {
                 localStorage.setItem("bhugalPrayasTheme", newTheme);
             } catch (error) {
-                // Theme still works for the current page session.
+                // Theme works for the current page session.
             }
         });
 
@@ -640,14 +688,17 @@
         let savedRating = 0;
 
         try {
-            savedRating = Number(localStorage.getItem("bhugalPrayasRating")) || 0;
+            savedRating = Number(
+                localStorage.getItem("bhugalPrayasRating")
+            ) || 0;
         } catch (error) {
             savedRating = 0;
         }
 
         if (savedRating >= 1 && savedRating <= 5) {
             showRating(savedRating);
-            ratingAverage.textContent = "Your rating: " + savedRating + " / 5";
+            ratingAverage.textContent =
+                "Your rating: " + savedRating + " / 5";
             ratingMessage.textContent = "Thank you for your rating!";
         }
 
@@ -656,13 +707,18 @@
                 const rating = Number(button.dataset.rating);
 
                 showRating(rating);
-                ratingAverage.textContent = "Your rating: " + rating + " / 5";
-                ratingMessage.textContent = "Thank you for rating our website!";
+                ratingAverage.textContent =
+                    "Your rating: " + rating + " / 5";
+                ratingMessage.textContent =
+                    "Thank you for rating our website!";
 
                 try {
-                    localStorage.setItem("bhugalPrayasRating", String(rating));
+                    localStorage.setItem(
+                        "bhugalPrayasRating",
+                        String(rating)
+                    );
                 } catch (error) {
-                    // Rating display still works in the current session.
+                    // Rating display works in the current session.
                 }
             });
         });
