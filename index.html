@@ -144,7 +144,7 @@
       100% { background-position: 300% 50%; }
     }
 
-    /* Separate circular logo */
+    /* Logo stays separate from the banner */
     .logo-container {
       width: 180px;
       height: 180px;
@@ -259,7 +259,10 @@
       box-shadow: 0 8px 24px rgba(0,200,255,.15);
     }
 
-    .btn i { font-size: 18px; }
+    .btn i {
+      font-size: 18px;
+    }
+
     .whatsapp-btn i { color: #25D366; }
     .contact-btn i { color: var(--accent); }
     .gmail-btn i { color: #ff746d; }
@@ -317,6 +320,27 @@
       margin-top: 10px;
     }
 
+    .qr-placeholder {
+      width: min(100%,260px);
+      aspect-ratio: 1;
+      margin: 20px auto 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      border: 2px dashed var(--glass-border);
+      border-radius: 20px;
+      color: var(--muted);
+      text-align: center;
+      padding: 20px;
+    }
+
+    .qr-placeholder i {
+      font-size: 58px;
+      color: var(--accent);
+    }
+
     .qr-container {
       display: flex;
       justify-content: center;
@@ -332,14 +356,6 @@
       border: 1px solid var(--glass-border);
       box-shadow: 0 10px 30px var(--shadow);
       background: #fff;
-    }
-
-    .banner-image {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 16px;
-      border: 1px solid var(--glass-border);
     }
 
     .footer {
@@ -404,7 +420,7 @@
 
   <main class="container">
 
-    <!-- Header and separate logo -->
+    <!-- Header -->
     <header class="glass-card hero">
       <div class="logo-container">
         <img src="logo.jpeg"
@@ -424,10 +440,10 @@
       </div>
     </header>
 
-    <!-- Social media -->
+    <!-- Follow Us -->
     <section class="glass-card" id="follow">
       <h2 class="section-title">
-        <i class="fas fa-users"></i> Follow Me
+        <i class="fas fa-users"></i> Follow Us
       </h2>
 
       <p class="section-description">
@@ -458,10 +474,16 @@
            aria-label="YouTube Channel coming soon">
           <i class="fab fa-youtube"></i> YouTube Channel — Coming Soon
         </a>
+
+        <a href="https://whatsapp.com/channel/0029Vb96Lj7Chq6VCDC0vH2k"
+           target="_blank" rel="noopener noreferrer"
+           class="btn whatsapp-btn">
+          <i class="fab fa-whatsapp"></i> WhatsApp Channel
+        </a>
       </div>
     </section>
 
-    <!-- Contact buttons -->
+    <!-- Contact Us -->
     <section class="glass-card" id="contact">
       <h2 class="section-title">
         <i class="fas fa-address-book"></i> Contact Us
@@ -478,7 +500,8 @@
           <i class="fab fa-whatsapp"></i> WhatsApp
         </a>
 
-        <a href="tel:+919064910430" class="btn contact-btn">
+        <a href="tel:+919064910430"
+           class="btn contact-btn">
           <i class="fas fa-phone-alt"></i> Contact / Call
         </a>
 
@@ -486,16 +509,10 @@
            class="btn gmail-btn">
           <i class="fas fa-envelope"></i> Gmail
         </a>
-
-        <a href="https://whatsapp.com/channel/0029Vb96Lj7Chq6VCDC0vH2k"
-           target="_blank" rel="noopener noreferrer"
-           class="btn whatsapp-btn">
-          <i class="fab fa-whatsapp"></i> WhatsApp Channel
-        </a>
       </div>
     </section>
 
-    <!-- Enquiry form -->
+    <!-- Enquiry Form -->
     <section class="glass-card" id="enquiry">
       <h2 class="section-title">
         <i class="fas fa-clipboard-list"></i> Enquiry Form
@@ -530,7 +547,7 @@
       </div>
     </section>
 
-    <!-- Website rating -->
+    <!-- Rate Our Website -->
     <section class="glass-card" id="rating">
       <h2 class="section-title">
         <i class="fas fa-star"></i> Rate Our Website
@@ -557,7 +574,7 @@
       </p>
     </section>
 
-    <!-- Banner comes after Rate Our Website -->
+    <!-- Banner after Rate Our Website -->
     <section class="glass-card" id="banner">
       <h2 class="section-title">
         <i class="fas fa-image"></i> Our Banner
@@ -565,11 +582,11 @@
 
       <img src="banner.png"
            alt="BHUGAL PRAYAS Banner"
-           class="banner-image"
+           style="display:block;width:100%;height:auto;border-radius:16px;border:1px solid var(--glass-border);"
            loading="lazy">
     </section>
 
-    <!-- Copyright footer -->
+    <!-- Copyright Footer -->
     <footer class="footer">
       <p><strong>BHUGAL PRAYAS</strong> by Pintu Roy</p>
       <p>Contact: +91 9064910430</p>
@@ -658,7 +675,7 @@
       });
     });
 
-    // Automatically update the copyright year
+    // Automatically update copyright year
     document.getElementById("year").textContent =
       new Date().getFullYear();
   </script>
