@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BHUGAL PRAYAS by Pintu Roy</title>
-  <meta name="description" content="BHUGAL PRAYAS by Pintu Roy. Connect with us, make enquiries and explore more.">
+  <meta name="description" content="BHUGAL PRAYAS by Pintu Roy. Connect with us, make enquiries, register for mock tests and explore more.">
   <meta name="theme-color" content="#080b18">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -144,7 +144,7 @@
       100% { background-position: 300% 50%; }
     }
 
-    /* Logo stays separate from the banner */
+    /* Logo remains separate */
     .logo-container {
       width: 180px;
       height: 180px;
@@ -270,6 +270,7 @@
     .instagram-btn i { color: #E4405F; }
     .youtube-btn i { color: #FF0000; }
     .enquiry-btn i { color: var(--accent); }
+    .mock-test-btn i { color: #ffc83d; }
 
     .coming-soon {
       opacity: .72;
@@ -320,27 +321,6 @@
       margin-top: 10px;
     }
 
-    .qr-placeholder {
-      width: min(100%,260px);
-      aspect-ratio: 1;
-      margin: 20px auto 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      border: 2px dashed var(--glass-border);
-      border-radius: 20px;
-      color: var(--muted);
-      text-align: center;
-      padding: 20px;
-    }
-
-    .qr-placeholder i {
-      font-size: 58px;
-      color: var(--accent);
-    }
-
     .qr-container {
       display: flex;
       justify-content: center;
@@ -356,6 +336,14 @@
       border: 1px solid var(--glass-border);
       box-shadow: 0 10px 30px var(--shadow);
       background: #fff;
+    }
+
+    .banner-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      border: 1px solid var(--glass-border);
     }
 
     .footer {
@@ -529,6 +517,25 @@
       </a>
     </section>
 
+    <!-- NEW: Mock Test Registration -->
+    <section class="glass-card" id="mock-test-registration">
+      <h2 class="section-title">
+        <i class="fas fa-file-pen"></i> Mock Test Registration
+      </h2>
+
+      <p class="section-description">
+        Register for the BHUGAL PRAYAS mock test using the registration form below.
+        Fill in the required details carefully before submitting.
+      </p>
+
+      <a href="https://docs.google.com/forms/d/1inMih2B-yxQDs-AON92vPoW5xlhAYbHjCksyXtE1HSA/viewform"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="btn mock-test-btn">
+        <i class="fas fa-user-plus"></i> Register for Mock Test
+      </a>
+    </section>
+
     <!-- QR Code -->
     <section class="glass-card" id="qr">
       <h2 class="section-title">
@@ -582,7 +589,7 @@
 
       <img src="banner.png"
            alt="BHUGAL PRAYAS Banner"
-           style="display:block;width:100%;height:auto;border-radius:16px;border:1px solid var(--glass-border);"
+           class="banner-image"
            loading="lazy">
     </section>
 
@@ -629,7 +636,7 @@
       } catch (error) {}
     });
 
-    // Rating is saved in this browser only
+    // Website rating: saved in this browser only
     const ratingButtons =
       document.querySelectorAll(".rating-stars button");
 
