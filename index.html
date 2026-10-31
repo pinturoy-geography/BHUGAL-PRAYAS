@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>BHUGAL PRAYAS by Pintu Roy</title>
+
   <meta name="description" content="BHUGAL PRAYAS by Pintu Roy. Connect with us, make enquiries, register for mock tests and explore more.">
   <meta name="theme-color" content="#080b18">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
@@ -144,7 +147,7 @@
       100% { background-position: 300% 50%; }
     }
 
-    /* Logo remains separate */
+    /* Logo */
     .logo-container {
       width: 180px;
       height: 180px;
@@ -271,6 +274,7 @@
     .youtube-btn i { color: #FF0000; }
     .enquiry-btn i { color: var(--accent); }
     .mock-test-btn i { color: #ffc83d; }
+    .google-review-btn i { color: #ffc83d; }
 
     .coming-soon {
       opacity: .72;
@@ -346,6 +350,26 @@
       border: 1px solid var(--glass-border);
     }
 
+    /* Google Review Image */
+    .review-image-container {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .review-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 10px 30px var(--shadow);
+    }
+
+    .review-button-container {
+      margin-top: 20px;
+    }
+
     .footer {
       padding: 10px 0 25px;
       text-align: center;
@@ -401,6 +425,7 @@
 </head>
 
 <body>
+
   <button class="theme-toggle" id="themeToggle" type="button"
           aria-label="Toggle light and dark theme">
     <i class="fas fa-moon" id="themeIcon"></i>
@@ -410,6 +435,7 @@
 
     <!-- Header -->
     <header class="glass-card hero">
+
       <div class="logo-container">
         <img src="logo.jpeg"
              alt="BHUGAL PRAYAS by Pintu Roy Logo"
@@ -417,7 +443,9 @@
       </div>
 
       <h1>BHUGAL PRAYAS</h1>
+
       <p class="subtitle">by Pintu Roy</p>
+
       <p class="subtitle">
         Welcome to BHUGAL PRAYAS — connect with us and explore more.
       </p>
@@ -426,10 +454,13 @@
         <i class="fas fa-eye"></i>
         <strong>1.5K visitors today</strong>
       </div>
+
     </header>
+
 
     <!-- Follow Us -->
     <section class="glass-card" id="follow">
+
       <h2 class="section-title">
         <i class="fas fa-users"></i> Follow Us
       </h2>
@@ -439,6 +470,7 @@
       </p>
 
       <div class="button-grid">
+
         <a href="https://www.facebook.com/share/1FntwTG9N5/"
            target="_blank" rel="noopener noreferrer"
            class="btn facebook-btn">
@@ -468,11 +500,77 @@
            class="btn whatsapp-btn">
           <i class="fab fa-whatsapp"></i> WhatsApp Channel
         </a>
+
       </div>
     </section>
 
+
+    <!-- Visit Us on Google -->
+    <section class="glass-card" id="google-visit">
+
+      <h2 class="section-title">
+        <i class="fab fa-google"></i> Visit Us on Google
+      </h2>
+
+      <p class="section-description">
+        Find BHUGAL PRAYAS on Google. Visit our Google Business Profile
+        to explore more and connect with us.
+      </p>
+
+      <a href="https://share.google/MHFEn07Naom6kV36Y"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="btn enquiry-btn">
+
+        <i class="fas fa-location-dot"></i>
+        Visit Us on Google
+
+      </a>
+
+    </section>
+
+
+    <!-- Review Us on Google -->
+    <section class="glass-card" id="google-review">
+
+      <h2 class="section-title">
+        <i class="fas fa-star"></i> Review Us on Google
+      </h2>
+
+      <p class="section-description">
+        Your valuable feedback helps BHUGAL PRAYAS grow.
+        Scan the QR code or click below to share your experience.
+      </p>
+
+      <div class="review-image-container">
+
+        <img src="review.jpeg"
+             alt="BHUGAL PRAYAS - Review Us on Google"
+             class="review-image"
+             loading="lazy">
+
+      </div>
+
+      <div class="review-button-container">
+
+        <a href="https://g.page/r/CUVBWoJlea5zEAE/review"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn google-review-btn">
+
+          <i class="fab fa-google"></i>
+          Review Us on Google
+
+        </a>
+
+      </div>
+
+    </section>
+
+
     <!-- Contact Us -->
     <section class="glass-card" id="contact">
+
       <h2 class="section-title">
         <i class="fas fa-address-book"></i> Contact Us
       </h2>
@@ -482,6 +580,7 @@
       </p>
 
       <div class="button-grid">
+
         <a href="https://wa.me/919064910430"
            target="_blank" rel="noopener noreferrer"
            class="btn whatsapp-btn">
@@ -497,11 +596,14 @@
            class="btn gmail-btn">
           <i class="fas fa-envelope"></i> Gmail
         </a>
+
       </div>
     </section>
 
+
     <!-- Enquiry Form -->
     <section class="glass-card" id="enquiry">
+
       <h2 class="section-title">
         <i class="fas fa-clipboard-list"></i> Enquiry Form
       </h2>
@@ -511,14 +613,21 @@
       </p>
 
       <a href="https://docs.google.com/forms/d/1z18CYPZW3AzbjINhl2wAzddNiR7MUFuiDEE724PAX3Y/viewform"
-         target="_blank" rel="noopener noreferrer"
+         target="_blank"
+         rel="noopener noreferrer"
          class="btn enquiry-btn">
-        <i class="fas fa-paper-plane"></i> Fill Enquiry Form
+
+        <i class="fas fa-paper-plane"></i>
+        Fill Enquiry Form
+
       </a>
+
     </section>
 
-    <!-- NEW: Mock Test Registration -->
+
+    <!-- Mock Test Registration -->
     <section class="glass-card" id="mock-test-registration">
+
       <h2 class="section-title">
         <i class="fas fa-file-pen"></i> Mock Test Registration
       </h2>
@@ -532,12 +641,18 @@
          target="_blank"
          rel="noopener noreferrer"
          class="btn mock-test-btn">
-        <i class="fas fa-user-plus"></i> Register for Mock Test
+
+        <i class="fas fa-user-plus"></i>
+        Register for Mock Test
+
       </a>
+
     </section>
+
 
     <!-- QR Code -->
     <section class="glass-card" id="qr">
+
       <h2 class="section-title">
         <i class="fas fa-qrcode"></i> Scan Our QR Code
       </h2>
@@ -547,15 +662,20 @@
       </p>
 
       <div class="qr-container">
+
         <img src="qr-code.jpeg"
              alt="BHUGAL PRAYAS QR Code"
              class="qr-image"
              loading="lazy">
+
       </div>
+
     </section>
+
 
     <!-- Rate Our Website -->
     <section class="glass-card" id="rating">
+
       <h2 class="section-title">
         <i class="fas fa-star"></i> Rate Our Website
       </h2>
@@ -565,11 +685,13 @@
       </p>
 
       <div class="rating-stars" aria-label="Rate this website">
+
         <button type="button" data-rating="1" aria-label="1 star">★</button>
         <button type="button" data-rating="2" aria-label="2 stars">★</button>
         <button type="button" data-rating="3" aria-label="3 stars">★</button>
         <button type="button" data-rating="4" aria-label="4 stars">★</button>
         <button type="button" data-rating="5" aria-label="5 stars">★</button>
+
       </div>
 
       <p class="rating-message" id="ratingMessage" aria-live="polite">
@@ -579,10 +701,13 @@
       <p class="rating-average" id="ratingAverage">
         Your rating: Not rated yet
       </p>
+
     </section>
 
-    <!-- Banner after Rate Our Website -->
+
+    <!-- Our Banner -->
     <section class="glass-card" id="banner">
+
       <h2 class="section-title">
         <i class="fas fa-image"></i> Our Banner
       </h2>
@@ -591,100 +716,157 @@
            alt="BHUGAL PRAYAS Banner"
            class="banner-image"
            loading="lazy">
+
     </section>
+
 
     <!-- Copyright Footer -->
     <footer class="footer">
+
       <p><strong>BHUGAL PRAYAS</strong> by Pintu Roy</p>
+
       <p>Contact: +91 9064910430</p>
+
       <p>
         © <span id="year"></span> BHUGAL PRAYAS. All rights reserved.
       </p>
+
     </footer>
 
   </main>
 
+
   <script>
-    // Theme toggle
+
+    // Theme Toggle
+
     const themeToggle = document.getElementById("themeToggle");
     const themeIcon = document.getElementById("themeIcon");
 
     function applyTheme(theme) {
+
       document.body.classList.toggle("light", theme === "light");
+
       themeIcon.className =
         theme === "light" ? "fas fa-sun" : "fas fa-moon";
+
     }
 
     let savedTheme = "dark";
 
     try {
-      savedTheme = localStorage.getItem("bhugalPrayasTheme") || "dark";
+
+      savedTheme =
+        localStorage.getItem("bhugalPrayasTheme") || "dark";
+
     } catch (error) {
+
       savedTheme = "dark";
+
     }
 
     applyTheme(savedTheme);
 
     themeToggle.addEventListener("click", () => {
+
       const newTheme =
         document.body.classList.contains("light") ? "dark" : "light";
 
       applyTheme(newTheme);
 
       try {
+
         localStorage.setItem("bhugalPrayasTheme", newTheme);
+
       } catch (error) {}
+
     });
 
-    // Website rating: saved in this browser only
+
+    // Website Rating
+    // Saved in this browser only
+
     const ratingButtons =
       document.querySelectorAll(".rating-stars button");
 
-    const ratingMessage = document.getElementById("ratingMessage");
-    const ratingAverage = document.getElementById("ratingAverage");
+    const ratingMessage =
+      document.getElementById("ratingMessage");
+
+    const ratingAverage =
+      document.getElementById("ratingAverage");
 
     function showRating(rating) {
+
       ratingButtons.forEach(button => {
+
         button.classList.toggle(
           "active",
           Number(button.dataset.rating) <= rating
         );
+
       });
+
     }
 
     let savedRating = 0;
 
     try {
+
       savedRating =
         Number(localStorage.getItem("bhugalPrayasRating")) || 0;
+
     } catch (error) {
+
       savedRating = 0;
+
     }
 
     if (savedRating >= 1 && savedRating <= 5) {
+
       showRating(savedRating);
-      ratingAverage.textContent = "Your rating: " + savedRating + " / 5";
-      ratingMessage.textContent = "Thank you for your rating!";
+
+      ratingAverage.textContent =
+        "Your rating: " + savedRating + " / 5";
+
+      ratingMessage.textContent =
+        "Thank you for your rating!";
+
     }
 
     ratingButtons.forEach(button => {
+
       button.addEventListener("click", () => {
+
         const rating = Number(button.dataset.rating);
 
         showRating(rating);
 
-        ratingAverage.textContent = "Your rating: " + rating + " / 5";
-        ratingMessage.textContent = "Thank you for rating our website!";
+        ratingAverage.textContent =
+          "Your rating: " + rating + " / 5";
+
+        ratingMessage.textContent =
+          "Thank you for rating our website!";
 
         try {
-          localStorage.setItem("bhugalPrayasRating", String(rating));
+
+          localStorage.setItem(
+            "bhugalPrayasRating",
+            String(rating)
+          );
+
         } catch (error) {}
+
       });
+
     });
 
-    // Automatically update copyright year
+
+    // Automatically Update Copyright Year
+
     document.getElementById("year").textContent =
       new Date().getFullYear();
+
   </script>
+
 </body>
 </html>
