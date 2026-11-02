@@ -1,860 +1,723 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10294c">
+<title>BHUGAL PRAYAS | By Pintu Roy</title>
 
-  <title>BHUGAL PRAYAS by Pintu Roy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <meta name="description" content="BHUGAL PRAYAS by Pintu Roy. Connect with us, make enquiries, register for mock tests and explore more.">
-  <meta name="theme-color" content="#080b18">
+<style>
+:root{
+--navy:#10294c;
+--navy-dark:#091d38;
+--blue:#1c4778;
+--gold:#d5a63c;
+--gold-light:#f3e4bd;
+--white:#fff;
+--bg:#f5f7fb;
+--text:#26364a;
+--muted:#66758a;
+--border:#e2e8f0;
+--shadow:0 12px 35px rgba(16,41,76,.09);
+}
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+body.lightbox-open{overflow:hidden}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer}
+.container{width:min(1160px,92%);margin:auto}
+.section{padding:78px 0}
 
-  <style>
-    :root {
-      --bg: #080b18;
-      --text: #f5f7ff;
-      --muted: #b9c1d9;
-      --glass: rgba(255,255,255,.07);
-      --glass-border: rgba(255,255,255,.16);
-      --accent: #00d4ff;
-      --accent2: #8b5cf6;
-      --shadow: rgba(0,0,0,.25);
-    }
+.section-heading{text-align:center;margin-bottom:38px}
+.eyebrow{color:#a77a20;text-transform:uppercase;font-size:12px;font-weight:800;letter-spacing:2px}
+.section-heading h2{color:var(--navy);font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,40px);margin:8px 0 10px}
+.section-heading p{color:var(--muted);max-width:650px;margin:auto}
 
-    body.light {
-      --bg: #edf2ff;
-      --text: #151a30;
-      --muted: #505a76;
-      --glass: rgba(255,255,255,.76);
-      --glass-border: rgba(50,65,100,.18);
-      --accent: #087ee1;
-      --accent2: #7851d8;
-      --shadow: rgba(35,50,90,.12);
-    }
+/* HEADER */
+header{background:white;position:sticky;top:0;z-index:1000;box-shadow:0 3px 15px rgba(16,41,76,.08)}
+.navbar{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:53px;height:53px;object-fit:contain;border-radius:50%;border:2px solid var(--gold)}
+.brand-text h2{color:var(--navy);font-family:'Playfair Display',serif;font-size:19px;line-height:1.2}
+.brand-text span{color:#a77a20;font-size:11px;font-weight:700;letter-spacing:1.5px}
+.nav-links{display:flex;align-items:center;gap:20px}
+.nav-links a{color:var(--navy);font-size:13px;font-weight:700}
+.nav-links a:hover{color:#b18429}
+.nav-toggle{display:none;border:0;background:var(--navy);color:white;width:43px;height:43px;border-radius:8px;font-size:19px}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+/* HERO */
+.hero{background:linear-gradient(120deg,rgba(9,29,56,.97),rgba(20,58,98,.92));color:white;padding:85px 0 90px;position:relative;overflow:hidden}
+.hero-content{position:relative;z-index:1;max-width:780px}
+.hero-label{display:inline-block;color:var(--gold-light);border:1px solid rgba(213,166,60,.6);padding:7px 15px;border-radius:30px;font-size:12px;font-weight:700;letter-spacing:1.3px;margin-bottom:22px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(38px,6vw,64px);line-height:1.15;margin-bottom:15px}
+.hero h1 span{color:var(--gold)}
+.hero p{color:#dce5f1;font-size:16px;max-width:620px;margin-bottom:28px}
+.hero-buttons{display:flex;flex-wrap:wrap;gap:13px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 22px;border-radius:7px;font-weight:700;font-size:14px;border:1px solid transparent;transition:.25s}
+.btn-gold{background:var(--gold);color:var(--navy-dark)}
+.btn-gold:hover{background:#e7bd60;transform:translateY(-2px)}
+.btn-outline{border-color:rgba(255,255,255,.6);color:white}
+.btn-outline:hover{background:white;color:var(--navy)}
 
-    html {
-      scroll-behavior: smooth;
-    }
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:45px}
+.about-image img{width:100%;max-height:390px;object-fit:contain;background:white;border-radius:14px;padding:15px;box-shadow:var(--shadow)}
+.about-content h2{color:var(--navy);font-family:'Playfair Display',serif;font-size:35px;margin-bottom:15px}
+.about-content p{color:var(--muted);margin-bottom:15px}
+.about-list{list-style:none;margin-top:20px}
+.about-list li{margin:11px 0;color:var(--text);font-weight:600}
+.about-list i{color:#b18429;margin-right:9px}
 
-    body {
-      min-height: 100vh;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      overflow-x: hidden;
-      transition: background .35s, color .35s;
-    }
+/* FACILITIES */
+.facilities-section{background:#edf2f8}
+.facilities-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.facility-card{background:white;border:1px solid var(--border);border-radius:12px;padding:25px 18px;text-align:center;box-shadow:0 5px 18px rgba(16,41,76,.04);transition:.25s}
+.facility-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--gold)}
+.facility-card i{color:#b18429;font-size:27px;margin-bottom:13px}
+.facility-card h3{color:var(--navy);font-size:15px}
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: -50%;
-      z-index: -2;
-      background:
-        radial-gradient(circle at 20% 30%, #512da8 0, transparent 30%),
-        radial-gradient(circle at 80% 25%, #007f9e 0, transparent 30%),
-        radial-gradient(circle at 50% 80%, #3b1d76 0, transparent 35%);
-      animation: backgroundMove 15s ease-in-out infinite alternate;
-    }
+/* SOCIAL */
+.social-section{background:#edf2f8}
+.social-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.social-card{background:white;padding:23px 12px;text-align:center;border-radius:12px;border:1px solid var(--border);transition:.25s}
+.social-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.social-card i{font-size:28px;margin-bottom:10px}
+.social-card h3{font-size:14px;color:var(--navy)}
+.facebook{color:#1877f2}
+.instagram{color:#d94683}
+.whatsapp{color:#20a75a}
+.youtube{color:#e62117}
 
-    body.light::before {
-      background:
-        radial-gradient(circle at 20% 30%, #c9b9ff 0, transparent 30%),
-        radial-gradient(circle at 80% 25%, #a7eaff 0, transparent 30%),
-        radial-gradient(circle at 50% 80%, #dfccff 0, transparent 35%);
-    }
+/* BUSINESS */
+.business-card{max-width:760px;margin:auto;background:white;border-radius:14px;padding:32px;box-shadow:var(--shadow);text-align:center;border-top:4px solid var(--gold)}
+.business-card i{font-size:42px;color:var(--navy);margin-bottom:12px}
+.business-card h3{color:var(--navy);font-size:22px;margin-bottom:8px}
+.business-card p{color:var(--muted);margin-bottom:20px}
 
-    @keyframes backgroundMove {
-      from { transform: translate(-2%,-2%) rotate(0); }
-      to { transform: translate(2%,2%) rotate(8deg); }
-    }
+/* CONTACT */
+.contact-section{background:var(--navy);color:white}
+.contact-section .section-heading h2{color:white}
+.contact-section .section-heading p{color:#d4deea}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.contact-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:25px 15px;text-align:center}
+.contact-card i{color:var(--gold);font-size:26px;margin-bottom:12px}
+.contact-card h3{font-size:16px;margin-bottom:6px}
+.contact-card p{color:#d4deea;font-size:13px;overflow-wrap:anywhere}
 
-    .theme-toggle {
-      position: fixed;
-      top: 18px;
-      right: 18px;
-      z-index: 100;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 1px solid var(--glass-border);
-      color: var(--text);
-      background: var(--glass);
-      backdrop-filter: blur(15px);
-      -webkit-backdrop-filter: blur(15px);
-      cursor: pointer;
-      font-size: 20px;
-      box-shadow: 0 5px 20px var(--shadow);
-    }
+/* FORMS */
+.forms-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.form-card{background:white;border-radius:14px;padding:30px;box-shadow:var(--shadow);border:1px solid var(--border)}
+.form-card h3{color:var(--navy);font-family:'Playfair Display',serif;font-size:23px;margin-bottom:10px}
+.form-card p{color:var(--muted);font-size:14px;margin-bottom:20px}
+.form-card .btn{width:100%}
 
-    .container {
-      width: min(100% - 32px, 1000px);
-      margin: auto;
-      padding: 78px 0 30px;
-    }
+/* REVIEW */
+.review-section{background:#edf2f8}
+.review-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.review-card{background:white;border-radius:14px;border:1px solid var(--border);padding:30px;box-shadow:var(--shadow);text-align:center}
+.review-card h3{color:var(--navy);font-family:'Playfair Display',serif;font-size:23px;margin-bottom:9px}
+.review-card>p{color:var(--muted);font-size:14px;margin-bottom:18px}
+.stars{display:flex;justify-content:center;gap:8px;margin:20px 0}
+.stars button{border:0;background:transparent;color:#cbd5e1;font-size:32px}
+.stars button.active,.stars button:hover{color:var(--gold)}
+.rating-message{min-height:25px;color:var(--navy);font-size:13px;font-weight:700;margin-bottom:14px}
+.review-image{width:100%;max-width:330px;height:190px;object-fit:contain;margin:12px auto 20px;border:1px solid var(--border);border-radius:9px;background:#fafafa;padding:8px}
+.review-card .btn{margin-top:8px}
 
-    .glass-card {
-      position: relative;
-      padding: 28px;
-      margin-bottom: 25px;
-      border-radius: 24px;
-      background: var(--glass);
-      border: 1px solid var(--glass-border);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      box-shadow: 0 15px 45px var(--shadow);
-      overflow: hidden;
-    }
+/* QR */
+.qr-card{max-width:520px;margin:auto;background:white;padding:30px;border-radius:14px;text-align:center;box-shadow:var(--shadow)}
+.qr-card img{width:240px;height:240px;object-fit:contain;margin:0 auto 18px;border:1px solid var(--border);padding:8px;border-radius:10px}
+.qr-card h3{color:var(--navy);margin-bottom:8px}
 
-    .hero {
-      text-align: center;
-      padding: 35px 25px;
-    }
+/* MOCK TEST GALLERY */
+.gallery-section{background:#edf2f8}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.gallery-item{border:0;padding:0;overflow:hidden;background:white;border-radius:10px;box-shadow:0 5px 15px rgba(16,41,76,.08);aspect-ratio:4/3;display:block;width:100%;position:relative;cursor:pointer}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .3s;pointer-events:none}
+.gallery-item:hover img{transform:scale(1.06)}
+.gallery-item::after{content:"\f00e";font-family:"Font Awesome 6 Free";font-weight:900;position:absolute;inset:0;background:rgba(9,29,56,.0);color:transparent;display:flex;align-items:center;justify-content:center;font-size:25px;transition:.2s;pointer-events:none}
+.gallery-item:hover::after{background:rgba(9,29,56,.35);color:white}
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      padding: 2px;
-      border-radius: inherit;
-      background: linear-gradient(
-        120deg,
-        var(--accent),
-        transparent,
-        var(--accent2),
-        var(--accent)
-      );
-      background-size: 300% 300%;
-      animation: borderGlow 7s linear infinite;
-      -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-    }
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;z-index:99999;background:rgba(3,12,25,.96);align-items:center;justify-content:center;padding:65px 75px;touch-action:pan-y}
+.lightbox.show{display:flex}
+.lightbox img{max-width:90%;max-height:82vh;width:auto;height:auto;object-fit:contain;border-radius:8px;user-select:none;-webkit-user-drag:none}
+.lightbox-close,.lightbox-prev,.lightbox-next{position:absolute;z-index:2;color:white;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);border-radius:50%;width:48px;height:48px;font-size:20px;display:flex;align-items:center;justify-content:center;transition:.2s}
+.lightbox-close:hover,.lightbox-prev:hover,.lightbox-next:hover{background:var(--gold);color:var(--navy-dark)}
+.lightbox-close{top:18px;right:20px}
+.lightbox-prev{left:18px;top:50%;transform:translateY(-50%)}
+.lightbox-next{right:18px;top:50%;transform:translateY(-50%)}
+.lightbox-counter{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);color:white;font-size:13px;background:rgba(255,255,255,.14);padding:6px 15px;border-radius:20px}
 
-    @keyframes borderGlow {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 300% 50%; }
-    }
+/* BANNER */
+.banner-image{width:100%;border-radius:14px;box-shadow:var(--shadow);border:1px solid var(--border)}
 
-    .logo-container {
-      width: 180px;
-      height: 180px;
-      margin: 0 auto 22px;
-      overflow: hidden;
-      border-radius: 50%;
-      border: 1px solid var(--glass-border);
-      box-shadow: 0 10px 35px rgba(0,200,255,.18);
-    }
+/* FOOTER */
+footer{background:var(--navy-dark);color:white;padding:45px 0 20px}
+.footer-content{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:35px;padding-bottom:30px}
+.footer-content h3{color:var(--gold);margin-bottom:13px;font-family:'Playfair Display',serif}
+.footer-content p,.footer-content a{color:#d4deea;font-size:13px}
+.footer-links{display:flex;flex-direction:column;gap:8px}
+.footer-links a:hover{color:var(--gold)}
+.footer-rate{text-align:center;padding:20px 0;border-top:1px solid rgba(255,255,255,.15)}
+.footer-rate p{font-size:14px;margin-bottom:9px}
+.footer-rate a{color:var(--gold);font-weight:700}
+.copyright{border-top:1px solid rgba(255,255,255,.15);padding-top:17px;text-align:center;color:#aebed0;font-size:12px}
 
-    .site-logo {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+/* WHATSAPP */
+.whatsapp-float{position:fixed;right:20px;bottom:20px;width:58px;height:58px;background:#20b85a;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:29px;z-index:1500;box-shadow:0 5px 20px rgba(0,0,0,.2)}
 
-    h1 {
-      font-size: clamp(30px,6vw,48px);
-      line-height: 1.15;
-      font-weight: 900;
-      letter-spacing: 1px;
-      overflow-wrap: anywhere;
-      background: linear-gradient(90deg,var(--accent),#fff,var(--accent2));
-      background-size: 200% auto;
-      color: var(--accent);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: titleGlow 5s linear infinite;
-    }
+@media(max-width:900px){
+.nav-links{gap:12px}
+.nav-links a{font-size:11px}
+.facilities-grid{grid-template-columns:repeat(2,1fr)}
+.social-grid{grid-template-columns:repeat(3,1fr)}
+.gallery-grid{grid-template-columns:repeat(3,1fr)}
+}
 
-    @keyframes titleGlow {
-      to { background-position: 200% center; }
-    }
+@media(max-width:680px){
+.navbar{min-height:68px}
+.nav-toggle{display:block}
+.nav-links{display:none;position:absolute;top:68px;left:0;width:100%;background:white;padding:16px 5%;box-shadow:0 10px 15px rgba(16,41,76,.1);flex-direction:column;align-items:stretch;gap:0}
+.nav-links.open{display:flex}
+.nav-links a{font-size:14px;padding:11px 0;border-bottom:1px solid var(--border)}
+.hero{padding:65px 0}
+.hero p{font-size:14px}
+.section{padding:58px 0}
+.about-grid,.forms-grid,.review-grid,.contact-grid,.footer-content{grid-template-columns:1fr}
+.about-content h2{font-size:29px}
+.social-grid{grid-template-columns:repeat(2,1fr)}
+.gallery-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+.review-card{padding:24px 18px}
+.lightbox{padding:65px 48px}
+.lightbox img{max-width:100%;max-height:75vh}
+.lightbox-close{top:12px;right:12px}
+.lightbox-prev{left:5px}
+.lightbox-next{right:5px}
+.lightbox-prev,.lightbox-next{width:40px;height:40px;font-size:16px}
+}
 
-    .subtitle {
-      color: var(--muted);
-      font-size: 16px;
-      margin-top: 12px;
-      line-height: 1.7;
-    }
-
-    .visitor-counter {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      margin-top: 22px;
-      padding: 10px 17px;
-      border-radius: 50px;
-      border: 1px solid var(--glass-border);
-      background: var(--glass);
-      font-size: 14px;
-      color: var(--text);
-    }
-
-    .visitor-counter i {
-      color: var(--accent);
-    }
-
-    .section-title {
-      font-size: 23px;
-      margin-bottom: 18px;
-      display: flex;
-      align-items: center;
-      gap: 11px;
-    }
-
-    .section-title i {
-      color: var(--accent);
-    }
-
-    .section-description {
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-
-    .button-grid {
-      display: grid;
-      grid-template-columns: repeat(2,minmax(0,1fr));
-      gap: 14px;
-    }
-
-    .btn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      width: 100%;
-      min-height: 49px;
-      padding: 13px 17px;
-      border-radius: 14px;
-      border: 1px solid var(--glass-border);
-      background: var(--glass);
-      color: var(--text);
-      text-align: center;
-      text-decoration: none;
-      font-size: 15px;
-      font-weight: 700;
-      font-family: inherit;
-      cursor: pointer;
-      transition:
-        transform .25s ease,
-        box-shadow .25s ease,
-        border-color .25s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-      border-color: var(--accent);
-      box-shadow: 0 8px 24px rgba(0,200,255,.15);
-    }
-
-    .btn i {
-      font-size: 18px;
-    }
-
-    .whatsapp-btn i { color: #25D366; }
-    .contact-btn i { color: var(--accent); }
-    .gmail-btn i { color: #ff746d; }
-    .facebook-btn i { color: #1877F2; }
-    .instagram-btn i { color: #E4405F; }
-    .youtube-btn i { color: #FF0000; }
-    .enquiry-btn i { color: var(--accent); }
-    .mock-test-btn i { color: #ffc83d; }
-    .google-review-btn i { color: #ffc83d; }
-
-    .rating-stars {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin: 18px 0;
-    }
-
-    .rating-stars button {
-      border: none;
-      background: transparent;
-      color: #8790a8;
-      font-size: clamp(28px,6vw,38px);
-      cursor: pointer;
-      transition: transform .2s,color .2s;
-    }
-
-    .rating-stars button:hover {
-      transform: scale(1.15);
-    }
-
-    .rating-stars button.active {
-      color: #ffc83d;
-    }
-
-    .rating-message {
-      min-height: 24px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 14px;
-      margin-top: 8px;
-    }
-
-    .rating-average {
-      text-align: center;
-      font-weight: 700;
-      margin-top: 10px;
-    }
-
-    .qr-container {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-    }
-
-    .qr-image {
-      display: block;
-      width: 100%;
-      max-width: 320px;
-      height: auto;
-      border-radius: 14px;
-      border: 1px solid var(--glass-border);
-      box-shadow: 0 10px 30px var(--shadow);
-      background: #fff;
-    }
-
-    .banner-image {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 16px;
-      border: 1px solid var(--glass-border);
-    }
-
-    .review-image-container {
-      display: flex;
-      justify-content: center;
-      margin: 20px 0;
-    }
-
-    .review-image {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 16px;
-      border: 1px solid var(--glass-border);
-      box-shadow: 0 10px 30px var(--shadow);
-    }
-
-    .review-button-container {
-      margin-top: 20px;
-    }
-
-    .footer {
-      padding: 10px 0 25px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.8;
-    }
-
-    .footer strong {
-      color: var(--text);
-    }
-
-    @media (max-width: 600px) {
-      .container {
-        width: min(100% - 22px,1000px);
-        padding-top: 78px;
-      }
-
-      .glass-card {
-        padding: 22px 17px;
-        border-radius: 20px;
-      }
-
-      .hero {
-        padding: 25px 14px;
-      }
-
-      .logo-container {
-        width: 145px;
-        height: 145px;
-        border-radius: 50%;
-        margin-bottom: 18px;
-      }
-
-      .button-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .section-title {
-        font-size: 21px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,*::before,*::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
-      }
-    }
-  </style>
+@media(max-width:380px){
+.brand-text h2{font-size:16px}
+.brand img{width:45px;height:45px}
+.facility-card{padding:20px 10px}
+}
+</style>
 </head>
 
 <body>
 
-  <button class="theme-toggle" id="themeToggle" type="button"
-          aria-label="Toggle light and dark theme">
-    <i class="fas fa-moon" id="themeIcon"></i>
-  </button>
-
-  <main class="container">
-
-    <!-- Header -->
-    <header class="glass-card hero">
-
-      <div class="logo-container">
-        <img src="logo.jpeg"
-             alt="BHUGAL PRAYAS by Pintu Roy Logo"
-             class="site-logo">
-      </div>
-
-      <h1>BHUGAL PRAYAS</h1>
-
-      <p class="subtitle">by Pintu Roy</p>
-
-      <p class="subtitle">
-        Welcome to BHUGAL PRAYAS — connect with us and explore more.
-      </p>
-
-      <div class="visitor-counter">
-        <i class="fas fa-eye"></i>
-        <strong>1.5K visitors today</strong>
-      </div>
-
-    </header>
-
-
-    <!-- Follow Us -->
-    <section class="glass-card" id="follow">
-
-      <h2 class="section-title">
-        <i class="fas fa-users"></i> Follow Us
-      </h2>
-
-      <p class="section-description">
-        Connect with BHUGAL PRAYAS on social media.
-      </p>
-
-      <div class="button-grid">
-
-        <a href="https://www.facebook.com/share/1FntwTG9N5/"
-           target="_blank" rel="noopener noreferrer"
-           class="btn facebook-btn">
-          <i class="fab fa-facebook"></i> Facebook Profile
-        </a>
-
-        <a href="https://www.facebook.com/share/14xUpwVYgrL/"
-           target="_blank" rel="noopener noreferrer"
-           class="btn facebook-btn">
-          <i class="fab fa-facebook-f"></i> Facebook Page
-        </a>
-
-        <a href="https://www.instagram.com/pinturoy588?vrfl=MWxuanRqMTh5bDVkaw=="
-           target="_blank" rel="noopener noreferrer"
-           class="btn instagram-btn">
-          <i class="fab fa-instagram"></i> Instagram
-        </a>
-
-        <!-- Updated YouTube Channel -->
-        <a href="https://youtube.com/@bhugalprayas?si=qlbC_PLwS0Iffl2s"
-           target="_blank" rel="noopener noreferrer"
-           class="btn youtube-btn">
-          <i class="fab fa-youtube"></i> YouTube Channel
-        </a>
-
-        <a href="https://whatsapp.com/channel/0029Vb96Lj7Chq6VCDC0vH2k"
-           target="_blank" rel="noopener noreferrer"
-           class="btn whatsapp-btn">
-          <i class="fab fa-whatsapp"></i> WhatsApp Channel
-        </a>
-
-      </div>
-    </section>
-
-
-    <!-- Visit Us on Google -->
-    <section class="glass-card" id="google-visit">
-
-      <h2 class="section-title">
-        <i class="fab fa-google"></i> Visit Us on Google
-      </h2>
-
-      <p class="section-description">
-        Find BHUGAL PRAYAS on Google. Visit our Google Business Profile
-        to explore more and connect with us.
-      </p>
-
-      <a href="https://share.google/MHFEn07Naom6kV36Y"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="btn enquiry-btn">
-
-        <i class="fas fa-location-dot"></i>
-        Visit Us on Google
-
-      </a>
-
-    </section>
-
-
-    <!-- Review Us on Google -->
-    <section class="glass-card" id="google-review">
-
-      <h2 class="section-title">
-        <i class="fas fa-star"></i> Review Us on Google
-      </h2>
-
-      <p class="section-description">
-        Your valuable feedback helps BHUGAL PRAYAS grow.
-        Scan the QR code or click below to share your experience.
-      </p>
-
-      <div class="review-image-container">
-
-        <img src="review.jpeg"
-             alt="BHUGAL PRAYAS - Review Us on Google"
-             class="review-image"
-             loading="lazy">
-
-      </div>
-
-      <div class="review-button-container">
-
-        <a href="https://g.page/r/CUVBWoJlea5zEAE/review"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="btn google-review-btn">
-
-          <i class="fab fa-google"></i>
-          Review Us on Google
-
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- Contact Us -->
-    <section class="glass-card" id="contact">
-
-      <h2 class="section-title">
-        <i class="fas fa-address-book"></i> Contact Us
-      </h2>
-
-      <p class="section-description">
-        Have a question? Contact us through your preferred method.
-      </p>
-
-      <div class="button-grid">
-
-        <a href="https://wa.me/919064910430"
-           target="_blank" rel="noopener noreferrer"
-           class="btn whatsapp-btn">
-          <i class="fab fa-whatsapp"></i> WhatsApp
-        </a>
-
-        <a href="tel:+919064910430"
-           class="btn contact-btn">
-          <i class="fas fa-phone-alt"></i> Contact / Call
-        </a>
-
-        <a href="mailto:pinturoy9732@gmail.com"
-           class="btn gmail-btn">
-          <i class="fas fa-envelope"></i> Gmail
-        </a>
-
-      </div>
-    </section>
-
-
-    <!-- Enquiry Form -->
-    <section class="glass-card" id="enquiry">
-
-      <h2 class="section-title">
-        <i class="fas fa-clipboard-list"></i> Enquiry Form
-      </h2>
-
-      <p class="section-description">
-        For enquiries or more information, click below to complete our Google Form.
-      </p>
-
-      <a href="https://docs.google.com/forms/d/1z18CYPZW3AzbjINhl2wAzddNiR7MUFuiDEE724PAX3Y/viewform"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="btn enquiry-btn">
-
-        <i class="fas fa-paper-plane"></i>
-        Fill Enquiry Form
-
-      </a>
-
-    </section>
-
-
-    <!-- Mock Test Registration -->
-    <section class="glass-card" id="mock-test-registration">
-
-      <h2 class="section-title">
-        <i class="fas fa-file-pen"></i> Mock Test Registration
-      </h2>
-
-      <p class="section-description">
-        Register for the BHUGAL PRAYAS mock test using the registration form below.
-        Fill in the required details carefully before submitting.
-      </p>
-
-      <a href="https://docs.google.com/forms/d/1inMih2B-yxQDs-AON92vPoW5xlhAYbHjCksyXtE1HSA/viewform"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="btn mock-test-btn">
-
-        <i class="fas fa-user-plus"></i>
-        Register for Mock Test
-
-      </a>
-
-    </section>
-
-
-    <!-- QR Code -->
-    <section class="glass-card" id="qr">
-
-      <h2 class="section-title">
-        <i class="fas fa-qrcode"></i> Scan Our QR Code
-      </h2>
-
-      <p class="section-description">
-        Scan the QR code below to connect with BHUGAL PRAYAS.
-      </p>
-
-      <div class="qr-container">
-
-        <img src="qr-code.jpeg"
-             alt="BHUGAL PRAYAS QR Code"
-             class="qr-image"
-             loading="lazy">
-
-      </div>
-
-    </section>
-
-
-    <!-- Rate Our Website -->
-    <section class="glass-card" id="rating">
-
-      <h2 class="section-title">
-        <i class="fas fa-star"></i> Rate Our Website
-      </h2>
-
-      <p class="section-description">
-        Enjoying the website? Select a star rating.
-      </p>
-
-      <div class="rating-stars" aria-label="Rate this website">
-
-        <button type="button" data-rating="1" aria-label="1 star">★</button>
-        <button type="button" data-rating="2" aria-label="2 stars">★</button>
-        <button type="button" data-rating="3" aria-label="3 stars">★</button>
-        <button type="button" data-rating="4" aria-label="4 stars">★</button>
-        <button type="button" data-rating="5" aria-label="5 stars">★</button>
-
-      </div>
-
-      <p class="rating-message" id="ratingMessage" aria-live="polite">
-        Choose your rating above.
-      </p>
-
-      <p class="rating-average" id="ratingAverage">
-        Your rating: Not rated yet
-      </p>
-
-    </section>
-
-
-    <!-- Our Banner -->
-    <section class="glass-card" id="banner">
-
-      <h2 class="section-title">
-        <i class="fas fa-image"></i> Our Banner
-      </h2>
-
-      <img src="banner.png"
-           alt="BHUGAL PRAYAS Banner"
-           class="banner-image"
-           loading="lazy">
-
-    </section>
-
-
-    <!-- Copyright Footer -->
-    <footer class="footer">
-
-      <p><strong>BHUGAL PRAYAS</strong> by Pintu Roy</p>
-
-      <p>Contact: +91 9064910430</p>
-
-      <p>
-        © <span id="year"></span> BHUGAL PRAYAS. All rights reserved.
-      </p>
-
-    </footer>
-
-  </main>
-
-
-  <script>
-
-    // Theme Toggle
-
-    const themeToggle = document.getElementById("themeToggle");
-    const themeIcon = document.getElementById("themeIcon");
-
-    function applyTheme(theme) {
-
-      document.body.classList.toggle("light", theme === "light");
-
-      themeIcon.className =
-        theme === "light" ? "fas fa-sun" : "fas fa-moon";
-
-    }
-
-    let savedTheme = "dark";
-
-    try {
-
-      savedTheme =
-        localStorage.getItem("bhugalPrayasTheme") || "dark";
-
-    } catch (error) {
-
-      savedTheme = "dark";
-
-    }
-
-    applyTheme(savedTheme);
-
-    themeToggle.addEventListener("click", () => {
-
-      const newTheme =
-        document.body.classList.contains("light") ? "dark" : "light";
-
-      applyTheme(newTheme);
-
-      try {
-
-        localStorage.setItem("bhugalPrayasTheme", newTheme);
-
-      } catch (error) {}
-
+<header>
+<div class="container navbar">
+<a href="#home" class="brand">
+<img src="logo.jpeg" alt="Bhugal Prayas Logo">
+<div class="brand-text">
+<h2>BHUGAL PRAYAS</h2>
+<span>BY PINTU ROY</span>
+</div>
+</a>
+
+<button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+<i class="fa-solid fa-bars"></i>
+</button>
+
+<nav class="nav-links" id="navLinks">
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#facilities">Facilities</a>
+<a href="#follow">Follow Us</a>
+<a href="#mocktest">Mock Test</a>
+<a href="#reviews">Reviews</a>
+<a href="#contact">Contact</a>
+</nav>
+</div>
+</header>
+
+<!-- HOME -->
+<section class="hero" id="home">
+<div class="container">
+<div class="hero-content">
+<span class="hero-label"><i class="fa-solid fa-graduation-cap"></i> LEARN • EXPLORE • ACHIEVE</span>
+<h1>Welcome to <span>BHUGAL PRAYAS</span></h1>
+<p>A dedicated learning platform for Geography education. Build strong concepts, explore knowledge and prepare confidently for your academic journey.</p>
+<div class="hero-buttons">
+<a href="#about" class="btn btn-gold">Explore More <i class="fa-solid fa-arrow-right"></i></a>
+<a href="#mock-registration" class="btn btn-outline"><i class="fa-solid fa-clipboard-check"></i> Register for Mock Test</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+<div class="container about-grid">
+<div class="about-image">
+<img src="logo.jpeg" alt="BHUGAL PRAYAS">
+</div>
+<div class="about-content">
+<span class="eyebrow">ABOUT OUR PLATFORM</span>
+<h2>Smart Learning with Concept-Based Education</h2>
+<p>BHUGAL PRAYAS by Pintu Roy is a learning initiative focused on Geography education, conceptual understanding and student development.</p>
+<p>Our aim is to make learning meaningful through regular practice, smart learning methods, personal guidance and a supportive academic environment.</p>
+<ul class="about-list">
+<li><i class="fa-solid fa-check-circle"></i> Experienced and Qualified Teacher</li>
+<li><i class="fa-solid fa-check-circle"></i> Online and Offline Classes</li>
+<li><i class="fa-solid fa-check-circle"></i> Offline Batch at Habra</li>
+<li><i class="fa-solid fa-check-circle"></i> Concept-Based Learning</li>
+<li><i class="fa-solid fa-check-circle"></i> Smart Learning</li>
+<li><i class="fa-solid fa-check-circle"></i> Compact Batch Size</li>
+<li><i class="fa-solid fa-check-circle"></i> Mock Test Available Always</li>
+<li><i class="fa-solid fa-check-circle"></i> Personal Doubt Solving</li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- FACILITIES -->
+<section class="section facilities-section" id="facilities">
+<div class="container">
+<div class="section-heading">
+<span class="eyebrow">WHY CHOOSE US</span>
+<h2>Our Facilities</h2>
+<p>Focused academic support and learning facilities for better educational experiences.</p>
+</div>
+
+<div class="facilities-grid">
+<div class="facility-card"><i class="fa-solid fa-chalkboard-user"></i><h3>Qualified Teacher</h3></div>
+<div class="facility-card"><i class="fa-solid fa-laptop"></i><h3>Online & Offline Classes</h3></div>
+<div class="facility-card"><i class="fa-solid fa-users"></i><h3>Regular Batch</h3></div>
+<div class="facility-card"><i class="fa-solid fa-people-group"></i><h3>Small Batch</h3></div>
+<div class="facility-card"><i class="fa-solid fa-lightbulb"></i><h3>Concept-Based Learning</h3></div>
+<div class="facility-card"><i class="fa-solid fa-circle-question"></i><h3>Doubt Solving</h3></div>
+<div class="facility-card"><i class="fa-solid fa-book-open"></i><h3>Self Study Library</h3></div>
+<div class="facility-card"><i class="fa-solid fa-earth-asia"></i><h3>Practical Facility</h3></div>
+<div class="facility-card"><i class="fa-solid fa-video"></i><h3>Video Recording Classes</h3></div>
+<div class="facility-card"><i class="fa-solid fa-file-pdf"></i><h3>PDF Notes</h3></div>
+<div class="facility-card"><i class="fa-solid fa-clipboard-check"></i><h3>Regular Tests</h3></div>
+<div class="facility-card"><i class="fa-solid fa-chart-line"></i><h3>Regular Feedback</h3></div>
+<div class="facility-card"><i class="fa-solid fa-infinity"></i><h3>Mock Test Available Always</h3></div>
+<div class="facility-card"><i class="fa-solid fa-brain"></i><h3>Smart Learning</h3></div>
+</div>
+</div>
+</section>
+
+<!-- FOLLOW US -->
+<section class="section social-section" id="follow">
+<div class="container">
+<div class="section-heading">
+<span class="eyebrow">STAY CONNECTED</span>
+<h2>Follow Us</h2>
+<p>Connect with BHUGAL PRAYAS through our official social media platforms.</p>
+</div>
+
+<div class="social-grid">
+<a class="social-card" href="https://www.facebook.com/share/1FntwTG9N5/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook facebook"></i><h3>Facebook Profile</h3></a>
+<a class="social-card" href="https://www.facebook.com/share/14xUpwVYgrL/" target="_blank" rel="noopener"><i class="fa-brands fa-facebook facebook"></i><h3>Facebook Page</h3></a>
+<a class="social-card" href="https://www.instagram.com/pinturoy588?vrfl=MWxuanRqMTh5bDVkaw==" target="_blank" rel="noopener"><i class="fa-brands fa-instagram instagram"></i><h3>Instagram</h3></a>
+<a class="social-card" href="https://whatsapp.com/channel/0029Vb96Lj7Chq6VCDC0vH2k" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp whatsapp"></i><h3>WhatsApp Channel</h3></a>
+<a class="social-card" href="https://youtube.com/@bhugalprayas?si=qlbC_PLwS0Iffl2s" target="_blank" rel="noopener"><i class="fa-brands fa-youtube youtube"></i><h3>YouTube</h3></a>
+</div>
+</div>
+</section>
+
+<!-- GOOGLE BUSINESS -->
+<section class="section" id="business">
+<div class="container">
+<div class="section-heading">
+<span class="eyebrow">FIND US ON GOOGLE</span>
+<h2>Google Business Profile</h2>
+<p>Visit our Google Business Profile and explore our educational services.</p>
+</div>
+<div class="business-card">
+<i class="fa-brands fa-google"></i>
+<h3>BHUGAL PRAYAS by Pintu Roy</h3>
+<p>Find our profile, location and business information on Google.</p>
+<a class="btn btn-gold" href="https://share.google/MHFEn07Naom6kV36Y" target="_blank" rel="noopener">View Google Profile <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact-section" id="contact">
+<div class="container">
+<div class="section-heading">
+<span class="eyebrow">GET IN TOUCH</span>
+<h2>Contact Us</h2>
+<p>For admission, class details and any academic enquiry, contact us.</p>
+</div>
+<div class="contact-grid">
+<div class="contact-card">
+<i class="fa-solid fa-phone"></i>
+<h3>Call Us</h3>
+<p>+91 9064910430</p>
+<a class="btn btn-gold" href="tel:+919064910430">Call Now</a>
+</div>
+<div class="contact-card">
+<i class="fa-brands fa-whatsapp"></i>
+<h3>WhatsApp</h3>
+<p>Chat with us directly</p>
+<a class="btn btn-gold" href="https://wa.me/919064910430" target="_blank" rel="noopener">Message Us</a>
+</div>
+<div class="contact-card">
+<i class="fa-solid fa-envelope"></i>
+<h3>Email Us</h3>
+<p>pinturoy9732@gmail.com</p>
+<a class="btn btn-gold" href="mailto:pinturoy9732@gmail.com">Send Email</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ENQUIRY -->
+<section class="section" id="enquiry">
+<div class="container">
+<div class="section-heading">
+<span class="eyebrow">START YOUR JOURNEY</span>
+<h2>Enquiry & Registration</h2>
+<p>Get in touch with us for class details and admission enquiries.</p>
+</div>
+<div class="forms-grid">
+<div class="form-card">
+<h3>General Enquiry</h3>
+<p>Want to know about our classes, batches or facilities? Submit your enquiry here.</p>
+<a class="btn btn-gold" href="https://docs.google.com/forms/d/1z18CYPZW3AzbjINhl2wAzddNiR7MUFuiDEE724PAX3Y/viewform" target="_blank" rel="noopener">Enquiry Form <i class="fa-solid fa-arrow-right"></i></a>
+</div>
+
+<div class="form-card" id="mock-registration">
+<h3>Mock Test Registration</h3>
+<p>Register for our mock tests and practise to improve your preparation.</p>
+<a class="btn btn-gold" href="https://docs.google.com/forms/d/1inMih2B-yxQDs-AON92vPoW5xlhAYbHjCksyXtE1HSA/viewform" target="_blank" rel="noopener">Register Now <i class="fa-solid fa-arrow-right"></i></a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section review-section" id="reviews">
+<div class="container">
+<div class="section-heading">
+<span class="eyebrow">YOUR FEEDBACK MATTERS</span>
+<h2>Review & Feedback</h2>
+<p>Your feedback helps us improve our educational platform.</p>
+</div>
+
+<div class="review-grid">
+<div class="review-card">
+<h3>Website Review</h3>
+<p>Rate your experience with our website.</p>
+<div class="stars" id="ratingStars">
+<button type="button" data-rating="1" aria-label="1 star">★</button>
+<button type="button" data-rating="2" aria-label="2 stars">★</button>
+<button type="button" data-rating="3" aria-label="3 stars">★</button>
+<button type="button" data-rating="4" aria-label="4 stars">★</button>
+<button type="button" data-rating="5" aria-label="5 stars">★</button>
+</div>
+<div class="rating-message" id="ratingMessage">Select your rating</div>
+</div>
+
+<div class="review-card">
+<h3>Google Page Review</h3>
+<p>Share your valuable feedback on our Google Business Profile.</p>
+<img src="review.jpeg" class="review-image" alt="Google Review QR">
+<a class="btn btn-gold" href="https://g.page/r/CUVBWoJlea5zEAE/review" target="_blank" rel="noopener">Write a Google Review <i class="fa-solid fa-star"></i></a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- QR CODE -->
+<section class="section" id="qr">
+<div class="container">
+<div class="section-heading">
+<span class="eyebrow">SCAN & CONNECT</span>
+<h2>Our QR Code</h2>
+<p>Scan the QR code to visit our website.</p>
+</div>
+<div class="qr-card">
+<img src="qr-code.jpeg" alt="BHUGAL PRAYAS QR Code">
+<h3>BHUGAL PRAYAS by Pintu Roy</h3>
+<p>Scan to explore our website and educational services.</p>
+</div>
+</div>
+</section>
+
+<!-- MOCK TEST GALLERY -->
+<section class="section gallery-section" id="mocktest">
+<div class="container">
+<div class="section-heading">
+<span class="eyebrow">PRACTICE & PROGRESS</span>
+<h2>Mock Test Gallery</h2>
+<p>Class 9 to 10 | Explore our mock test activities and practice sessions.</p>
+</div>
+
+<div class="gallery-grid" id="galleryGrid">
+<button class="gallery-item" type="button" data-index="0"><img src="mock1.jpeg" alt="Mock Test 1" loading="lazy"></button>
+<button class="gallery-item" type="button" data-index="1"><img src="mock2.jpeg" alt="Mock Test 2" loading="lazy"></button>
+<button class="gallery-item" type="button" data-index="2"><img src="mock3.jpeg" alt="Mock Test 3" loading="lazy"></button>
+<button class="gallery-item" type="button" data-index="3"><img src="mock4.jpeg" alt="Mock Test 4" loading="lazy"></button>
+<button class="gallery-item" type="button" data-index="4"><img src="mock5.jpeg" alt="Mock Test 5" loading="lazy"></button>
+<button class="gallery-item" type="button" data-index="5"><img src="mock6.jpeg" alt="Mock Test 6" loading="lazy"></button>
+<button class="gallery-item" type="button" data-index="6"><img src="mock7.jpeg" alt="Mock Test 7" loading="lazy"></button>
+<button class="gallery-item" type="button" data-index="7"><img src="mock8.jpeg" alt="Mock Test 8" loading="lazy"></button>
+<button class="gallery-item" type="button" data-index="8"><img src="mock9.jpeg" alt="Mock Test 9" loading="lazy"></button>
+<button class="gallery-item" type="button" data-index="9"><img src="mock10.jpeg" alt="Mock Test 10" loading="lazy"></button>
+<button class="gallery-item" type="button" data-index="10"><img src="mock11.jpeg" alt="Mock Test 11" loading="lazy"></button>
+<button class="gallery-item" type="button" data-index="11"><img src="mock12.jpeg" alt="Mock Test 12" loading="lazy"></button>
+<button class="gallery-item" type="button" data-index="12"><img src="mock13.jpeg" alt="Mock Test 13" loading="lazy"></button>
+<button class="gallery-item" type="button" data-index="13"><img src="mock14.jpeg" alt="Mock Test 14" loading="lazy"></button>
+<button class="gallery-item" type="button" data-index="14"><img src="mock15.jpeg" alt="Mock Test 15" loading="lazy"></button>
+<button class="gallery-item" type="button" data-index="15"><img src="mock16.jpeg" alt="Mock Test 16" loading="lazy"></button>
+</div>
+</div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Mock test image viewer">
+<button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close image viewer"><i class="fa-solid fa-xmark"></i></button>
+<button class="lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous image"><i class="fa-solid fa-chevron-left"></i></button>
+<img id="lightboxImage" src="" alt="Enlarged mock test image">
+<button class="lightbox-next" id="lightboxNext" type="button" aria-label="Next image"><i class="fa-solid fa-chevron-right"></i></button>
+<div class="lightbox-counter" id="lightboxCounter">1 / 16</div>
+</div>
+
+<!-- BANNER -->
+<section class="section" id="banner">
+<div class="container">
+<div class="section-heading">
+<span class="eyebrow">BHUGAL PRAYAS</span>
+<h2>Our Academic Banner</h2>
+<p>Learn with guidance, practice and confidence.</p>
+</div>
+<img src="banner.png" class="banner-image" alt="BHUGAL PRAYAS Banner" loading="lazy">
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="container">
+<div class="footer-content">
+<div>
+<h3>BHUGAL PRAYAS</h3>
+<p>By Pintu Roy. A learning initiative focused on Geography education, conceptual understanding and student development.</p>
+</div>
+<div>
+<h3>Quick Links</h3>
+<div class="footer-links">
+<a href="#home">Home</a>
+<a href="#about">About Us</a>
+<a href="#facilities">Our Facilities</a>
+<a href="#mocktest">Mock Test Gallery</a>
+<a href="#reviews">Reviews</a>
+</div>
+</div>
+<div>
+<h3>Contact Information</h3>
+<div class="footer-links">
+<a href="tel:+919064910430">+91 9064910430</a>
+<a href="mailto:pinturoy9732@gmail.com">pinturoy9732@gmail.com</a>
+<a href="https://wa.me/919064910430" target="_blank" rel="noopener">WhatsApp Us</a>
+</div>
+</div>
+</div>
+
+<div class="footer-rate">
+<p>Enjoying our website? Let us know your experience!</p>
+<a href="#reviews">Rate Our Website <i class="fa-solid fa-star"></i></a>
+</div>
+
+<div class="copyright">
+<p>© 2026 BHUGAL PRAYAS by Pintu Roy. All Rights Reserved.</p>
+</div>
+</div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/919064910430" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script>
+/* MOBILE NAVIGATION */
+const navToggle = document.getElementById("navToggle");
+const navLinks = document.getElementById("navLinks");
+
+navToggle.addEventListener("click", function(){
+    navLinks.classList.toggle("open");
+    const icon = navToggle.querySelector("i");
+    icon.classList.toggle("fa-bars");
+    icon.classList.toggle("fa-xmark");
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        const icon = navToggle.querySelector("i");
+        icon.classList.add("fa-bars");
+        icon.classList.remove("fa-xmark");
     });
+});
 
+/* WEBSITE STAR RATING */
+const starButtons = document.querySelectorAll("#ratingStars button");
+const ratingMessage = document.getElementById("ratingMessage");
 
-    // Website Rating
-    // Saved in this browser only
+let savedRating = 0;
 
-    const ratingButtons =
-      document.querySelectorAll(".rating-stars button");
+try {
+    savedRating = Number(localStorage.getItem("websiteRating")) || 0;
+} catch(e) {}
 
-    const ratingMessage =
-      document.getElementById("ratingMessage");
+function displayRating(rating) {
+    starButtons.forEach(button => {
+        const value = Number(button.dataset.rating);
+        button.classList.toggle("active", value <= rating);
+    });
+}
 
-    const ratingAverage =
-      document.getElementById("ratingAverage");
+if(savedRating > 0) {
+    displayRating(savedRating);
+    ratingMessage.textContent = "Thank you! Your rating: " + savedRating + "/5";
+}
 
-    function showRating(rating) {
-
-      ratingButtons.forEach(button => {
-
-        button.classList.toggle(
-          "active",
-          Number(button.dataset.rating) <= rating
-        );
-
-      });
-
-    }
-
-    let savedRating = 0;
-
-    try {
-
-      savedRating =
-        Number(localStorage.getItem("bhugalPrayasRating")) || 0;
-
-    } catch (error) {
-
-      savedRating = 0;
-
-    }
-
-    if (savedRating >= 1 && savedRating <= 5) {
-
-      showRating(savedRating);
-
-      ratingAverage.textContent =
-        "Your rating: " + savedRating + " / 5";
-
-      ratingMessage.textContent =
-        "Thank you for your rating!";
-
-    }
-
-    ratingButtons.forEach(button => {
-
-      button.addEventListener("click", () => {
-
+starButtons.forEach(button => {
+    button.addEventListener("click", () => {
         const rating = Number(button.dataset.rating);
-
-        showRating(rating);
-
-        ratingAverage.textContent =
-          "Your rating: " + rating + " / 5";
-
-        ratingMessage.textContent =
-          "Thank you for rating our website!";
-
+        displayRating(rating);
+        ratingMessage.textContent = "Thank you! Your rating: " + rating + "/5";
         try {
-
-          localStorage.setItem(
-            "bhugalPrayasRating",
-            String(rating)
-          );
-
-        } catch (error) {}
-
-      });
-
+            localStorage.setItem("websiteRating", String(rating));
+        } catch(e) {}
     });
+});
 
+/* MOCK TEST LIGHTBOX - FULLY WORKING */
+const galleryItems = Array.from(document.querySelectorAll(".gallery-item"));
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxClose = document.getElementById("lightboxClose");
+const lightboxPrev = document.getElementById("lightboxPrev");
+const lightboxNext = document.getElementById("lightboxNext");
+const lightboxCounter = document.getElementById("lightboxCounter");
 
-    // Automatically Update Copyright Year
+let currentImageIndex = 0;
+let touchStartX = 0;
+let touchEndX = 0;
 
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+function showImage(index) {
+    if(index < 0) {
+        index = galleryItems.length - 1;
+    }
 
-  </script>
+    if(index >= galleryItems.length) {
+        index = 0;
+    }
+
+    currentImageIndex = index;
+
+    const thumbnail = galleryItems[currentImageIndex].querySelector("img");
+
+    lightboxImage.src = thumbnail.src;
+    lightboxImage.alt = thumbnail.alt || "Mock Test Image";
+    lightboxCounter.textContent =
+        (currentImageIndex + 1) + " / " + galleryItems.length;
+}
+
+function openLightbox(index) {
+    showImage(index);
+    lightbox.classList.add("show");
+    document.body.classList.add("lightbox-open");
+}
+
+function closeLightbox() {
+    lightbox.classList.remove("show");
+    document.body.classList.remove("lightbox-open");
+    lightboxImage.src = "";
+}
+
+function nextImage() {
+    showImage(currentImageIndex + 1);
+}
+
+function previousImage() {
+    showImage(currentImageIndex - 1);
+}
+
+/* Click any gallery image */
+galleryItems.forEach((item, index) => {
+    item.addEventListener("click", function() {
+        openLightbox(index);
+    });
+});
+
+/* Previous and Next buttons */
+lightboxNext.addEventListener("click", function(event) {
+    event.stopPropagation();
+    nextImage();
+});
+
+lightboxPrev.addEventListener("click", function(event) {
+    event.stopPropagation();
+    previousImage();
+});
+
+/* Close button */
+lightboxClose.addEventListener("click", closeLightbox);
+
+/* Close by clicking the dark background */
+lightbox.addEventListener("click", function(event) {
+    if(event.target === lightbox) {
+        closeLightbox();
+    }
+});
+
+/* Keyboard controls */
+document.addEventListener("keydown", function(event) {
+    if(!lightbox.classList.contains("show")) return;
+
+    if(event.key === "ArrowRight") {
+        event.preventDefault();
+        nextImage();
+    }
+
+    if(event.key === "ArrowLeft") {
+        event.preventDefault();
+        previousImage();
+    }
+
+    if(event.key === "Escape") {
+        closeLightbox();
+    }
+});
+
+/* Mobile swipe controls */
+lightbox.addEventListener("touchstart", function(event) {
+    touchStartX = event.changedTouches[0].screenX;
+}, {passive:true});
+
+lightbox.addEventListener("touchend", function(event) {
+    touchEndX = event.changedTouches[0].screenX;
+
+    const difference = touchEndX - touchStartX;
+
+    if(Math.abs(difference) < 45) return;
+
+    if(difference < 0) {
+        nextImage();
+    } else {
+        previousImage();
+    }
+}, {passive:true});
+
+/* Prevent image drag */
+lightboxImage.addEventListener("dragstart", function(event) {
+    event.preventDefault();
+});
+</script>
 
 </body>
 </html>
